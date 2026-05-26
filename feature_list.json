@@ -1,0 +1,42 @@
+{
+  "project": "MAPES 多Agent个性化表现评分系统 MVP",
+  "active_feature_policy": "one_feature_at_a_time",
+  "features": [
+    {
+      "id": "F001",
+      "name": "评分Rubric与PRD",
+      "status": "done",
+      "done_criteria": ["PRD exists", "Rubric exists", "six metrics defined"]
+    },
+    {
+      "id": "F002",
+      "name": "评分引擎与JSON Schema",
+      "status": "active",
+      "done_criteria": ["weighted score implemented", "grade implemented", "schema documented", "unit tests pass"]
+    },
+    {
+      "id": "F003",
+      "name": "ERNIE Judge适配器",
+      "status": "todo",
+      "done_criteria": ["provider interface exists", "mock fallback exists", "prompt template exists"]
+    },
+    {
+      "id": "F004",
+      "name": "PaddleOCR上下文提取",
+      "status": "todo",
+      "done_criteria": ["OCR adapter exists", "OCR failure fallback exists", "text-only flow unaffected"]
+    },
+    {
+      "id": "F005",
+      "name": "报告生成与Demo样例",
+      "status": "todo",
+      "done_criteria": ["demo cases exist", "report JSON generated", "strengths/weaknesses/suggestions included"]
+    },
+    {
+      "id": "F006",
+      "name": "Dify工作流说明",
+      "status": "todo",
+      "done_criteria": ["workflow spec exists", "node contract documented", "error handling documented"]
+    }
+  ]
+}
