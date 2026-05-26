@@ -1,0 +1,21 @@
+[
+  {
+    "case_id": "life_001",
+    "scenario_type": "生活陪伴",
+    "final_score": 78.0,
+    "grade": "B",
+    "scores": {
+      "persona_consistency": 4.0,
+      "personality_expressiveness": 3.0,
+      "context_awareness": 3.0,
+      "emotional_alignment": 4.0,
+      "multi_agent_collaboration": 4.0,
+      "hallucination_safety": 4.0
+    },
+    "strengths": ["评分闭环可运行", "角色和场景信息被纳入评估"],
+    "weaknesses": ["Mock Judge 不能代表真实模型判断", "多Agent协作证据需要更细粒度日志"],
+    "improvement_suggestions": ["接入真实ERNIE API", "记录每个Agent的发言顺序和职责命中情况"],
+    "overall_comment": "该案例达到MVP演示水平。",
+    "warnings": []
+  }
+]
