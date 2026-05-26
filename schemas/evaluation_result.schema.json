@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MAPES Evaluation Result",
+  "type": "object",
+  "required": ["scores", "reasons", "strengths", "weaknesses", "improvement_suggestions", "overall_comment"],
+  "properties": {
+    "scores": {
+      "type": "object",
+      "required": ["persona_consistency", "personality_expressiveness", "context_awareness", "emotional_alignment", "multi_agent_collaboration", "hallucination_safety"],
+      "properties": {
+        "persona_consistency": {"type": "number", "minimum": 0, "maximum": 5},
+        "personality_expressiveness": {"type": "number", "minimum": 0, "maximum": 5},
+        "context_awareness": {"type": "number", "minimum": 0, "maximum": 5},
+        "emotional_alignment": {"type": "number", "minimum": 0, "maximum": 5},
+        "multi_agent_collaboration": {"type": "number", "minimum": 0, "maximum": 5},
+        "hallucination_safety": {"type": "number", "minimum": 0, "maximum": 5}
+      },
+      "additionalProperties": false
+    },
+    "reasons": {"type": "object"},
+    "strengths": {"type": "array", "items": {"type": "string"}},
+    "weaknesses": {"type": "array", "items": {"type": "string"}},
+    "improvement_suggestions": {"type": "array", "items": {"type": "string"}},
+    "overall_comment": {"type": "string"}
+  }
+}
