@@ -15,8 +15,10 @@ MAPES（Multi-Agent Persona Evaluation System）是一个面向生活化、娱�
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
-python -m mapes.cli --input data/cases/demo_cases.json --output artifacts/demo_report.json
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+python -m pytest
+python -m mapes --input data/cases/demo_cases.json --output artifacts/demo_report.json
 ```
 
 如果没有配置 ERNIE API，系统会使用 `mock` judge 跑通闭环。
@@ -36,6 +38,8 @@ python -m mapes.cli --input data/cases/demo_cases.json --output artifacts/demo_r
 ├── schemas/evaluation_result.schema.json
 ├── src/mapes/
 ├── data/cases/demo_cases.json
+├── dify/workflow_spec.json
+├── examples/demo_report.example.json
 ├── tests/
 └── skills/persona-eval/SKILL.md
 ```
@@ -48,3 +52,10 @@ python -m mapes.cli --input data/cases/demo_cases.json --output artifacts/demo_r
 4. 情感共鸣力 Emotional Alignment
 5. 多 Agent 协作演绎 Multi-Agent Collaboration
 6. 幻觉与安全控制 Hallucination & Safety
+
+## 当前 MVP 能力
+
+- mock Judge 可直接运行，适合演示完整闭环。
+- ERNIE Judge 已预留适配器，可通过 `.env` 切换。
+- PaddleOCR 已预留 Adapter，支持后续接入截图识别。
+- Dify 工作流已形成节点级设计，可按 `dify/workflow_spec.json` 迁移。
