@@ -1,0 +1,18 @@
+{
+  "name": "MAPES 多Agent个性化表现评测工作流",
+  "version": "0.1.0",
+  "nodes": [
+    {"id": "start", "type": "input", "outputs": ["scenario_type", "scene_context", "agent_setting", "agent_output", "image_file"]},
+    {"id": "image_check", "type": "if", "condition": "image_file != null"},
+    {"id": "ocr", "type": "http", "description": "Call PaddleOCR service and return ocr_context"},
+    {"id": "context_builder", "type": "template", "description": "Combine scene, OCR, role config, and agent output"},
+    {"id": "ernie_judge", "type": "llm", "model": "ERNIE", "description": "Score by Rubric and return strict JSON"},
+    {"id": "json_parser", "type": "code", "description": "Parse judge JSON, validate schema, compute weighted score"},
+    {"id": "report", "type": "template", "description": "Generate final diagnostic report"}
+  ],
+  "error_handling": {
+    "ocr_failed": "continue with empty ocr_context and warning",
+    "judge_json_failed": "retry once with stricter JSON repair prompt",
+    "missing_score": "treat missing metric as 0 and add warning"
+  }
+}
